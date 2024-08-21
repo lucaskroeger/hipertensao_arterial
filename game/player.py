@@ -69,9 +69,11 @@ class Player:
                                     self.vel_y = 0
                     elif tile_code == 'G' and self.rect.colliderect(tile):
                         self.score += 1
-                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
+                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]      
+                        phase.remove_element(col_index, row_index -1)         
                         phase.create_object_on_random_pos('B', phase.level.bad_spawn_on_good_collection)
                     elif tile_code == 'B' and self.rect.colliderect(tile):
                         self.score -= 1
                         phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
+                        phase.remove_element(col_index, row_index -1)         
                         phase.create_object_on_random_pos('G', phase.level.good_spawn_on_bad_collection)
