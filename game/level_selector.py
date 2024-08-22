@@ -1,10 +1,16 @@
-from levels.level1 import Level1
+from levels.levele1 import LevelE1
+from levels.levelm1 import LevelM1
 
 class LevelSelector:
     level_mapper = {
         'easy': {
-            'level1': Level1()
-        }
+            'level1': LevelE1()
+        },
+        'medium': {
+            'level1': LevelM1()
+        },
+        'hard': {},
+        'ultrahard': {}
     }
 
     @staticmethod
