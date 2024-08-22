@@ -1,22 +1,35 @@
 import pygame
 from game.settings import TILE_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT
+from datetime import datetime, timedelta
 
 class Player:
     def __init__(self, image):
         self.image = image
         self.width = PLAYER_WIDTH
         self.height = PLAYER_HEIGHT
+        self.default_speed = 13
         self.speed = 13
+        self.default_jump_power = 16
         self.jump_power = 16
         self.gravity = 1.3
+        self.default_gravity = 1.3
         self.fast_fall_speed = 7
         self.score = 0
         self.vel_y = 0
         self.is_jumping = False
         self.on_ground = False
+        self.jump_key_pressed = False
+        self.air_jumps = 0
+        self.temporary_conditions = {
+            'speed': None,
+            'jump_power': None,
+            'gravity': None
+        }
         self.x = 50
         self.y = SCREEN_HEIGHT - self.height - TILE_SIZE
         self.rect = pygame.Rect(50, SCREEN_HEIGHT - PLAYER_HEIGHT - TILE_SIZE, PLAYER_WIDTH, PLAYER_HEIGHT)
+        self.last_object = None
+        
 
     def move(self):
         keys = pygame.key.get_pressed()
@@ -24,11 +37,24 @@ class Player:
             self.x -= self.speed
         if keys[pygame.K_d]:
             self.x += self.speed
-        if (keys[pygame.K_w] or keys[pygame.K_SPACE]) and not self.is_jumping:
-            self.vel_y = - self.jump_power
-            self.is_jumping = True
+        if keys[pygame.K_w] or keys[pygame.K_SPACE]:
+            if not self.jump_key_pressed:
+                self.jump_key_pressed = True
+                if not self.is_jumping:
+                    self.vel_y = -self.jump_power
+                elif self.air_jumps > 0:
+                    self.vel_y = -self.jump_power
+                    self.is_jumping = True
+                    self.air_jumps -= 1
+        else:
+            if self.jump_key_pressed:
+                self.jump_key_pressed = False
         if keys[pygame.K_s]:
             self.vel_y += self.fast_fall_speed  # Increase falling speed when 'S' is pressed
+
+        # Prevent player to do a jump in the air when falling
+        if self.vel_y + self.gravity < self.y:
+            self.is_jumping = True
 
         # Apply gravity
         self.vel_y += self.gravity
@@ -69,11 +95,34 @@ class Player:
                                     self.vel_y = 0
                     elif tile_code == 'G' and self.rect.colliderect(tile):
                         self.score += 1
+
+                        self.last_object = 'G'
                         phase.create_object_on_random_pos('B', phase.level.bad_spawn_on_good_collection)
-                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]      
                         phase.remove_element(col_index, row_index -1)         
+                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]                    
                     elif tile_code == 'B' and self.rect.colliderect(tile):
                         self.score -= 1
+<<<<<<< HEAD
                         phase.create_object_on_random_pos('G', phase.level.good_spawn_on_bad_collection)
                         phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
                         phase.remove_element(col_index, row_index -1)         
+=======
+                        self.last_object = 'B'
+                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
+                        phase.create_object_on_random_pos('G', phase.level.good_spawn_on_bad_collection)
+
+    def manage_temporary_conditions(self, condition=None, new_value=None, seconds=None):
+        now = datetime.now()
+        if condition is not None and new_value is not None and seconds is not None:
+            end_time = now + timedelta(seconds=seconds)
+            if condition == 'speed':
+                self.speed = new_value
+                self.temporary_conditions['speed'] = end_time
+        
+        for k, v in list(self.temporary_conditions.items()):
+            if v is not None and v <= now:
+                print(f'Condition {k} is met. Removing from list. {now}')
+                del self.temporary_conditions[k]
+                self.speed = self.default_speed
+
+>>>>>>> 6853f6a088fd365244e862a975e60488c53bd80e

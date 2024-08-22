@@ -16,7 +16,7 @@ images = load_images()
 player = Player(images['player3'])
 
 # Select level
-level = LevelSelector.select('easy', 'level1')
+level = LevelSelector.select('medium', 'level1')
 
 # Initialize phase
 phase = Phase(player, level)
@@ -31,6 +31,8 @@ while running:
 
     player.move()
     player.manageCollision(phase)
+    player = level.update_player_based_on_score(player)
+    player.manage_temporary_conditions() 
     phase.update()
 
     if player.score >= level.score_to_win:
@@ -41,4 +43,3 @@ while running:
         print('Perdeu')
 
 pygame.quit()
-sys.exit()
