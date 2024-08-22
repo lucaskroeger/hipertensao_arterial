@@ -101,7 +101,12 @@ class Phase:
         if currentElement != None:
             return currentElement.image
         else:
-            return self.get_random_image(type)
+            
+            image = self.get_random_image(type)
+    
+            self.elements.append(Element(x, y, image, object == 'G'))
+            
+            return image; 
     
     def remove_element(self, x, y):
         self.elements[:] = [element for element in self.elements if element.x != x and element.y != y]
