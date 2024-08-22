@@ -51,7 +51,6 @@ class Phase:
             tries = 0
             while not could_be_placed:
                 tries += 1 
-                print(tries)
                 pos = random.randint(0, count_platform)
                 cur_pos = 0
                 for row_index, row in enumerate(self.level.map):

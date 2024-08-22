@@ -33,7 +33,7 @@ class LevelE1(LevelConstructor):
         ]
         self.starting_bad_spawn = 5
         self.starting_good_spawn = 5
-        self.bad_spawn_on_good_collection = 1
+        self.bad_spawn_on_good_collection = 3
         self.good_spawn_on_bad_collection = 1
         self.score_to_win = 5
         self.score_to_lose = -3
