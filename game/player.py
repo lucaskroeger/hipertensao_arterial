@@ -74,35 +74,53 @@ class Player:
             self.is_jumping = False
     
     def manageCollision(self, phase):
+        
         self.on_ground = False
         self.rect.x = self.x
         self.rect.y = self.y
+        
         for row_index, row in enumerate(phase.level.map):
+            
             for col_index, tile_code in enumerate(row):
+               
                 if tile_code in ['X', 'G', 'B']:
                     tile = phase.create_tile(col_index, row_index, tile_code)
+                    
                     if tile_code == 'X':
+                    
                         if self.rect.colliderect(tile):
+                    
                             if self.vel_y >= 0:  # Falling
+                    
                                 if self.y + self.height - self.vel_y <= tile.y:
                                     self.y = tile.y - self.height
                                     self.vel_y = 0
                                     self.is_jumping = False
                                     self.on_ground = True
+                    
                             elif self.vel_y < 0:  # Jumping
+                    
                                 if self.y >= tile.y + TILE_SIZE:
                                     self.y = tile.y + TILE_SIZE
                                     self.vel_y = 0
-                    elif tile_code == 'G' and self.rect.colliderect(tile):
+                    
+                    elif tile_code == 'G' and self.rect.colliderect(tile):                       
                         self.score += 1
+
                         self.last_object = 'G'
-                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
-                        phase.create_object_on_random_pos('B', phase.level.bad_spawn_on_good_collection)
-                    elif tile_code == 'B' and self.rect.colliderect(tile):
+                       
+                        phase.create_object_on_random_pos('B', phase.level.bad_spawn_on_good_collection)                    
+                        phase.remove_element(col_index, row_index -1)                             
+                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]                    
+
+                    elif tile_code == 'B' and self.rect.colliderect(tile):                    
                         self.score -= 1
+                        
                         self.last_object = 'B'
-                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
+                        
                         phase.create_object_on_random_pos('G', phase.level.good_spawn_on_bad_collection)
+                        phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]
+                        phase.remove_element(col_index, row_index -1)         
 
     def manage_temporary_conditions(self, condition=None, new_value=None, seconds=None):
         now = datetime.now()
