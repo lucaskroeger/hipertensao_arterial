@@ -90,7 +90,7 @@ class Player:
                     
                         if self.rect.colliderect(tile):
                     
-                            if self.vel_y >= 0:  # Falling
+                            if self.vel_y >= 0: 
                     
                                 if self.y + self.height - self.vel_y <= tile.y:
                                     self.y = tile.y - self.height
@@ -98,7 +98,7 @@ class Player:
                                     self.is_jumping = False
                                     self.on_ground = True
                     
-                            elif self.vel_y < 0:  # Jumping
+                            elif self.vel_y < 0: 
                     
                                 if self.y >= tile.y + TILE_SIZE:
                                     self.y = tile.y + TILE_SIZE

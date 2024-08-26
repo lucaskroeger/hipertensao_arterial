@@ -62,9 +62,8 @@ class Phase:
                     for col_index, tile_code in enumerate(row):
                         if tile_code == 'X':
                             if cur_pos == pos:
-                                if self.level.map[row_index-1][col_index] == ' ' or tries > 15:
-                                    self.level.map[row_index-1] = self.level.map[row_index-1][:col_index] + object + self.level.map[row_index-1][col_index + 1:]
-                                    self.elements.append(Element(col_index, row_index-1, self.get_image(col_index, row_index-1, object), object == 'G'))
+                                if self.level.map[row_index-1][col_index] == ' ' or len(self.elements) >= (self.level.maxQuantitySpawn - 10):
+                                    self.level.map[row_index-1] = self.level.map[row_index-1][:col_index] + object + self.level.map[row_index-1][col_index + 1:]                                
                                     could_be_placed = True
                             cur_pos += 1
 
@@ -103,10 +102,12 @@ class Phase:
         else:
             
             image = self.get_random_image(type)
-    
-            self.elements.append(Element(x, y, image, object == 'G'))
             
-            return image; 
+            element = Element(x, y, image, type == 'G')
+            
+            self.elements.append(element)
+
+            return element.image
     
     def remove_element(self, x, y):
         self.elements[:] = [element for element in self.elements if element.x != x and element.y != y]
