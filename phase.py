@@ -2,6 +2,7 @@ import pygame
 from game.images import load_images
 from game.settings import SCREEN_WIDTH,SCREEN_HEIGHT,TILE_SIZE,WHITE,font
 import random 
+from datetime import datetime
 
 from game.element import Element
 
@@ -15,6 +16,7 @@ class Phase:
         self.score = 0
         self.create_object_on_random_pos('B', level.starting_bad_spawn)
         self.create_object_on_random_pos('G', level.starting_good_spawn)
+        self.time = '00:00.00'
         self.update()
         
 
@@ -24,7 +26,7 @@ class Phase:
         return screen
 
     def draw_background(self):
-        background_img = self.images['background']
+        background_img = self.images[self.level.background]
         self.screen.blit(background_img, (0, 0)) 
 
     def draw_player(self):
@@ -67,15 +69,29 @@ class Phase:
                                     could_be_placed = True
                             cur_pos += 1
 
-    def render_score(self):
+    def render_game_stats(self):
+        # Render Score
         score_text = font.render(f"Score: {self.player.score}", True, WHITE)
         self.screen.blit(score_text, (10, 10))
+
+        # Render Time
+        if self.player.first_input:
+            now = datetime.now() 
+            time_played = now - self.player.first_input
+            total_seconds = int(time_played.total_seconds())
+            minutes, seconds = divmod(total_seconds, 60)
+            milliseconds = time_played.microseconds // 10000
+            self.time = f"{minutes:02}:{seconds:02}.{milliseconds:02}"
+
+        time_text  = font.render(f"Time: {self.time}", True, WHITE)
+        self.screen.blit(time_text, (SCREEN_WIDTH-200, 10))
+
 
     def update(self):
         self.draw_background()
         self.draw_player()
         self.draw_platforms()
-        self.render_score()
+        self.render_game_stats()
         pygame.display.flip()
         pygame.time.Clock().tick(30)
 
