@@ -29,10 +29,17 @@ class Player:
         self.y = SCREEN_HEIGHT - self.height - TILE_SIZE
         self.rect = pygame.Rect(50, SCREEN_HEIGHT - PLAYER_HEIGHT - TILE_SIZE, PLAYER_WIDTH, PLAYER_HEIGHT)
         self.last_object = None
-        
+        self.first_input = None
 
     def move(self):
         keys = pygame.key.get_pressed()
+        if self.first_input is None and (
+                                    keys[pygame.K_a] 
+                                    or keys[pygame.K_d]
+                                    or keys[pygame.K_w] 
+                                    or keys[pygame.K_s] 
+                                    or keys[pygame.K_SPACE]):
+            self.first_input = datetime.now()
         if keys[pygame.K_a]:
             self.x -= self.speed
         if keys[pygame.K_d]:
@@ -82,7 +89,7 @@ class Player:
         for row_index, row in enumerate(phase.level.map):
             
             for col_index, tile_code in enumerate(row):
-               
+
                 if tile_code in ['X', 'G', 'B']:
                     tile = phase.create_tile(col_index, row_index, tile_code)
                     
@@ -108,7 +115,7 @@ class Player:
                         self.score += 1
 
                         self.last_object = 'G'
-                       
+
                         phase.create_object_on_random_pos('B', phase.level.bad_spawn_on_good_collection)                    
                         phase.remove_element(col_index, row_index -1)                             
                         phase.level.map[row_index] = phase.level.map[row_index][:col_index] + ' ' + phase.level.map[row_index][col_index + 1:]                    
@@ -132,7 +139,6 @@ class Player:
         
         for k, v in list(self.temporary_conditions.items()):
             if v is not None and v <= now:
-                print(f'Condition {k} is met. Removing from list. {now}')
                 del self.temporary_conditions[k]
                 self.speed = self.default_speed
 
