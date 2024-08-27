@@ -36,6 +36,7 @@ class LevelConstructor:
         self.good_spawn_on_bad_collection = 1
         self.score_to_win = 5
         self.score_to_lose = -3
+        self.background = 'background1'
 
     def update_player_based_on_score(self, player):
         if player.last_object == 'G':

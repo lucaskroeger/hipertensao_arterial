@@ -29,10 +29,18 @@ class Player:
         self.y = SCREEN_HEIGHT - self.height - TILE_SIZE
         self.rect = pygame.Rect(50, SCREEN_HEIGHT - PLAYER_HEIGHT - TILE_SIZE, PLAYER_WIDTH, PLAYER_HEIGHT)
         self.last_object = None
-        
+        self.first_input = None
 
     def move(self):
         keys = pygame.key.get_pressed()
+        if self.first_input is None and (
+                            keys[pygame.K_a] 
+                            or keys[pygame.K_d]
+                            or keys[pygame.K_w] 
+                            or keys[pygame.K_s] 
+                            or keys[pygame.K_SPACE]):
+            self.first_input = datetime.now()
+
         if keys[pygame.K_a]:
             self.x -= self.speed
         if keys[pygame.K_d]:
