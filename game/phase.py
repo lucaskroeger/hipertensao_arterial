@@ -110,3 +110,4 @@ class Phase:
     
     def remove_element(self, x, y):
         self.elements[:] = [element for element in self.elements if element.x != x and element.y != y]
+ 
