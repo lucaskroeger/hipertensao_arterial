@@ -5,6 +5,7 @@ from game.images import load_images
 from game.player import Player
 from game.phase import Phase
 from game.level_selector import LevelSelector
+from game.menus import end_phase
 
 # Initialize Pygame
 pygame.init()
@@ -37,9 +38,9 @@ while running:
 
     if player.score >= level.score_to_win:
         running = False
-        print('Ganhou')
+        end_message = 'Ganhou'
     if player.score <= level.score_to_lose:
         running = False
-        print('Perdeu')
+        end_message = 'Perdeu'
 
-pygame.quit()
+end_phase(phase, end_message)
