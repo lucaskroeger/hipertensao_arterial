@@ -68,8 +68,19 @@ class Phase:
                             cur_pos += 1
 
     def render_score(self):
-        score_text = font.render(f"Score: {self.player.score}", True, WHITE)
-        self.screen.blit(score_text, (10, 10))
+        
+        pos_y = 10
+        pos_x = 10        
+        
+        lose = (-self.level.score_to_lose) 
+
+        hearts_to_render = self.player.score + lose
+
+        for i in range(hearts_to_render):        
+            
+            self.screen.blit(self.images['heart'], (pos_x, pos_y))         
+            
+            pos_x += 40
 
     def update(self):
         self.draw_background()
