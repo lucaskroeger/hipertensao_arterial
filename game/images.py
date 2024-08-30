@@ -15,7 +15,8 @@ def load_images():
         'player2': pygame.image.load('images/players/2.png'),
         'player3': pygame.image.load('images/players/3.png'),
         'player4': pygame.image.load('images/players/4.png'),
-        'heart': pygame.image.load('images/heart/heart.png')
+        'heart': pygame.image.load('images/heart/heart.png'),
+        'empty-heart': pygame.image.load('images/heart/empty-heart.png')
     }
 
     # Scale images

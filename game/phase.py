@@ -75,13 +75,21 @@ class Phase:
         pos_x = 10        
         
         lose = (-self.level.score_to_lose) 
+        total = lose + self.level.score_to_win
+        
+        total_hearts = lose + self.player.score
+        total_empty_hearts = total - total_hearts
 
-        hearts_to_render = self.player.score + lose
+        for i in range(total_hearts):
 
-        for i in range(hearts_to_render):        
-            
             self.screen.blit(self.images['heart'], (pos_x, pos_y))         
+        
+            pos_x += 40
+
+        for i in range(total_empty_hearts):
             
+            self.screen.blit(self.images['empty-heart'], (pos_x, pos_y))         
+        
             pos_x += 40
 
         # Render Time
