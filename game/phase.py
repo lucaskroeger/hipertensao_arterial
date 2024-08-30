@@ -2,7 +2,7 @@ import pygame
 from game.images import load_images
 from game.settings import SCREEN_WIDTH,SCREEN_HEIGHT,TILE_SIZE,WHITE,font
 import random 
-from datetime import datetime
+from game.render.render_factory import RenderFactory
 
 from game.element import Element
 
@@ -70,39 +70,8 @@ class Phase:
                             cur_pos += 1
 
     def render_game_stats(self):
-        
-        pos_y = 10
-        pos_x = 10        
-        
-        lose = (-self.level.score_to_lose) 
-        total = lose + self.level.score_to_win
-        
-        total_hearts = lose + self.player.score
-        total_empty_hearts = total - total_hearts
-
-        for i in range(total_hearts):
-
-            self.screen.blit(self.images['heart'], (pos_x, pos_y))         
-        
-            pos_x += 40
-
-        for i in range(total_empty_hearts):
-            
-            self.screen.blit(self.images['empty-heart'], (pos_x, pos_y))         
-        
-            pos_x += 40
-
-        # Render Time
-        if self.player.first_input:
-            now = datetime.now() 
-            time_played = now - self.player.first_input
-            total_seconds = int(time_played.total_seconds())
-            minutes, seconds = divmod(total_seconds, 60)
-            milliseconds = time_played.microseconds // 10000
-            self.time = f"{minutes:02}:{seconds:02}.{milliseconds:02}"
-
-        time_text  = font.render(f"Time: {self.time}", True, WHITE)
-        self.screen.blit(time_text, (SCREEN_WIDTH-200, 10))
+        RenderFactory().get_implementation('heart').render(self)
+        RenderFactory().get_implementation('time').render(self)
 
     def update(self):
         self.draw_background()
@@ -144,4 +113,3 @@ class Phase:
     
     def remove_element(self, x, y):
         self.elements[:] = [element for element in self.elements if element.x != x and element.y != y]
-  

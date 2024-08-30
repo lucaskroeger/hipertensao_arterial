@@ -7,8 +7,7 @@ class RenderFactory:
     def __init__(self):
         self.renders = {
             'heart': RenderHeart(),
-            'time': RenderTime(),
-            'dbuffs': RenderDebuff()
+            'time': RenderTime()
         }
         
     def get_implementation(self, type):
