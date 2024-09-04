@@ -21,7 +21,7 @@ class Player:
         self.jump_key_pressed = False
         self.air_jumps = 0
         self.temporary_conditions = {
-            'speed': None,
+            'slowness': None,
             'jump_power': None,
             'gravity': None
         }
@@ -134,9 +134,9 @@ class Player:
         now = datetime.now()
         if condition is not None and new_value is not None and seconds is not None:
             end_time = now + timedelta(seconds=seconds)
-            if condition == 'speed':
+            if condition == 'slowness':
                 self.speed = new_value
-                self.temporary_conditions['speed'] = end_time
+                self.temporary_conditions['slowness'] = end_time
         
         for k, v in list(self.temporary_conditions.items()):
             if v is not None and v <= now:

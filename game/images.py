@@ -14,7 +14,11 @@ def load_images():
         'player1': pygame.image.load('images/players/1.png'),
         'player2': pygame.image.load('images/players/2.png'),
         'player3': pygame.image.load('images/players/3.png'),
-        'player4': pygame.image.load('images/players/4.png')
+        'player4': pygame.image.load('images/players/4.png'),
+        'heart': pygame.image.load('images/heart/heart.png'),
+        'empty-heart': pygame.image.load('images/heart/empty-heart.png'),
+        'slowness': pygame.image.load('images/debuff/debuff-slowness.png'),
+        'jump_power': pygame.image.load('images/buffs/buff-jump-power.png')
     }
 
     # Scale images
@@ -30,5 +34,8 @@ def load_images():
     images['player2'] = pygame.transform.scale(images['player2'], (PLAYER_WIDTH, PLAYER_HEIGHT))
     images['player3'] = pygame.transform.scale(images['player3'], (PLAYER_WIDTH, PLAYER_HEIGHT))
     images['player4'] = pygame.transform.scale(images['player4'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['slowness'] = pygame.transform.scale(images['slowness'], (50, 50))
+    images['jump_power'] = pygame.transform.scale(images['jump_power'], (50, 50))
+
 
     return images
