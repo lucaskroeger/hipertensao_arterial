@@ -72,6 +72,7 @@ class Phase:
     def render_game_stats(self):
         RenderFactory().get_implementation('heart').render(self)
         RenderFactory().get_implementation('time').render(self)
+        RenderFactory().get_implementation('buff-nerf').render(self)
 
     def update(self):
         self.draw_background()
