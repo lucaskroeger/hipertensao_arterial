@@ -37,5 +37,5 @@ class LevelM1(LevelConstructor):
         self.good_spawn_on_bad_collection = 5
         self.score_to_win = 5
         self.score_to_lose = -3
-        self.maxQuantitySpawn = sum(line.count('X') for line in self.map)
+        self.max_quantity_spawn = sum(line.count('X') for line in self.map)
         self.background = 'background1'

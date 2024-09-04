@@ -5,7 +5,15 @@ import pygame
 def end_phase(phase, message):
     phase.screen.fill(WHITE)
 
-    background_img = phase.images[phase.level.background+'_dark']
+    background_map = {
+        'background1': 'background1_dark',
+        'backgroundTu': 'background1_dark',
+    }
+
+    background_key = background_map.get(phase.level.background, phase.level.background + '_dark')
+
+    background_img = phase.images[background_key]
+
     message_text = font.render(message, True, WHITE)
 
     # Render Time

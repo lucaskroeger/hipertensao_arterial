@@ -1,8 +1,13 @@
 from levels.levele1 import LevelE1
 from levels.levelm1 import LevelM1
+from levels.tutorial import TutorialLevel
 
 class LevelSelector:
     level_mapper = {
+        
+        'tutorial': {
+            'level1': TutorialLevel()
+        },
         'easy': {
             'level1': LevelE1()
         },
