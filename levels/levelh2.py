@@ -1,36 +1,35 @@
 from levels.level_constructor import LevelConstructor
-class TutorialLevel(LevelConstructor):
+class LevelH1(LevelConstructor):
     def __init__(self):
-        super().__init__()
         self.map = [
             "                                        ",
             "                                        ",
-            "                 XXXX  XXXXX            ",
-            "           X                            ",
+            "                          XXXXXXXX      ",
+            "        XXXXXXXXX                       ",
             "                                        ",
-            "                X                       ",
-            "                      X                 ",
-            "                         XXXXXXXXXX     ",
+            "                        XXXXXXXX        ",
             "                                        ",
-            "                                        ",
-            "             XXXXXXXXXXXX               ",
+            "            XXXXX                       ",
             "                                        ",
             "                                        ",
-            "       XXXXX                  XXXXXXXX  ",
+            "        XXXXXXX                         ",
             "                                        ",
+            "    XXXXXX                              ",
+            "                            XXXXXXXX    ",
             "                                        ",
-            "     XXX          XXX      XXX        XX",
+            "               XXXXXXX                  ",
+            "XXXXX                                   ",
             "                                        ",
+            "     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   ",
             "                                        ",
-            "XX       XXXXXXXX     XXXXXXXXX    XXXXX",
+            "         X    X       X                 ",
             "                                        ",
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
             "                                        ",
-            "      XX                                ",
+            "           X      X        X            ",
             "                                        ",
-            "         XXXXXXXXXXXX                   ",
-            "    X                  XXXXXXXXXXXX     ",
-            "                                        ",
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            "        XXX    XXX   XXX                ",
+            "                                        "
         ]
         self.starting_bad_spawn = 5
         self.starting_good_spawn = 5
@@ -38,7 +37,4 @@ class TutorialLevel(LevelConstructor):
         self.good_spawn_on_bad_collection = 1
         self.score_to_win = 5
         self.score_to_lose = -3
-        self.background = 'backgroundTu'
-     
-    
-   
+        self.background = 'background1'
