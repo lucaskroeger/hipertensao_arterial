@@ -1,5 +1,6 @@
 from levels.levele1 import LevelE1
 from levels.levelm1 import LevelM1
+from levels.mid.mid_level import MidLevel
 
 class LevelSelector:
     level_mapper = {
@@ -7,7 +8,7 @@ class LevelSelector:
             'level1': LevelE1()
         },
         'medium': {
-            'level1': LevelM1()
+            'level1': MidLevel()
         },
         'hard': {},
         'ultrahard': {}
