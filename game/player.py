@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 
 class Player:
     def __init__(self, image):
+        self.name = 'default'
         self.image = image
         self.width = PLAYER_WIDTH
         self.height = PLAYER_HEIGHT
