@@ -4,6 +4,7 @@ from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, PLAYER_WIDTH, 
 def load_images():
     images = {
         'background1': pygame.image.load('images/scenario/background1.png'),
+        'backgroundTu': pygame.image.load('images/scenario/backgroundTu.png'),
         'background1_dark': pygame.image.load('images/scenario/background1_dark.png'),
         'platform': pygame.image.load('images/scenario/platform.png'),
         'good1': pygame.image.load('images/foods/good/1.png'),
@@ -23,6 +24,7 @@ def load_images():
 
     # Scale images
     images['background1'] = pygame.transform.scale(images['background1'], (SCREEN_WIDTH, SCREEN_HEIGHT))
+    images['backgroundTu'] = pygame.transform.scale(images['backgroundTu'], (SCREEN_WIDTH, SCREEN_HEIGHT))
     images['background1_dark'] = pygame.transform.scale(images['background1_dark'], (SCREEN_WIDTH, SCREEN_HEIGHT))
     images['platform'] = pygame.transform.scale(images['platform'], (TILE_SIZE, TILE_SIZE))
     images['good1'] = pygame.transform.scale(images['good1'], (TILE_SIZE, TILE_SIZE))

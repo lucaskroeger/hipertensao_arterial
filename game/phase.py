@@ -64,7 +64,7 @@ class Phase:
                     for col_index, tile_code in enumerate(row):
                         if tile_code == 'X':
                             if cur_pos == pos:
-                                if self.level.map[row_index-1][col_index] == ' ' or len(self.elements) >= (self.level.maxQuantitySpawn - 10):
+                                if self.level.map[row_index-1][col_index] == ' ' or len(self.elements) >= (self.level.max_quantity_spawn - 10):
                                     self.level.map[row_index-1] = self.level.map[row_index-1][:col_index] + object + self.level.map[row_index-1][col_index + 1:]                                
                                     could_be_placed = True
                             cur_pos += 1
