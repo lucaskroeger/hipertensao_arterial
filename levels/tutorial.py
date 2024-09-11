@@ -26,9 +26,9 @@ class TutorialLevel(LevelConstructor):
             "                                        ",
             "                                        ",
             "      XX                                ",
-            "                                        ",
+            "                            X           ",
             "         XXXXXXXXXXXX                   ",
-            "    X                  XXXXXXXXXXXX     ",
+            "    X                                   ",
             "                                        ",
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
         ]
@@ -39,6 +39,8 @@ class TutorialLevel(LevelConstructor):
         self.score_to_win = 5
         self.score_to_lose = -3
         self.background = 'backgroundTu'
+        self.max_quantity_spawn = sum(line.count('X') for line in self.map)
+
      
     
    

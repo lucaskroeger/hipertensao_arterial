@@ -1,34 +1,33 @@
 from levels.level_constructor import LevelConstructor
-class LevelH1(LevelConstructor):
+class LevelUH1(LevelConstructor):
     def __init__(self):
         self.map = [
             "                                        ",
             "                                        ",
-            "   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       ",
+            "    X             X     X           XX  ",
             "                                        ",
-            "             X       X                  ",
+            "          X                             ",
+            "                       X                ",
+            "XXX                             XXX     ",
             "                                        ",
-            "                X                       ",
+            "                     X                  ",
             "                                        ",
-            "  XXXXXXXXXXXXXXXX            XXXXXXX   ",
+            "       XXXXXX                    XXXXX  ",
+            "                           X            ",
             "                                        ",
             "                                        ",
-            "                       XXXXXX           ",
+            "    X                      XXXX         ",
             "                                        ",
-            "      XXXXXX                            ",
+            "           XXXXXX       X               ",
             "                                        ",
-            "                    XXXXXX              ",
             "                                        ",
-            "     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   ",
+            " X   X        X     X     X      X      ",
             "                                        ",
-            "      X       X    X     X       X      ",
             "                                        ",
-            "    X      X         X       X          ",
+            "           XX        XX          XXXXX  ",
             "                                        ",
-            "       XXXXXXX           XXXXXXX        ",
-            "  X               X                  X  ",
             "                                        ",
-            "X       XXXX          XXXXXX        XXXX",
+            "XX X           X        X       X      X",
             "                                        "
         ]
         self.starting_bad_spawn = 5
