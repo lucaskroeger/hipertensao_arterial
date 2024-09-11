@@ -37,8 +37,11 @@ def end_phase(phase, message):
 
 def register_score(phase):
     
-    scoreService = ScoreService()
+    if phase.player.score >= phase.level.score_to_win:
+
+        scoreService = ScoreService()
+        
+        scoreService.register(Score(phase.player.name, phase.time))
     
-    scoreService.register(Score(phase.player.name, phase.time))
-    
+
 

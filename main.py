@@ -14,7 +14,7 @@ pygame.init()
 images = load_images()
 
 # Initialize Player
-player = Player(images['player3'])
+player = Player(images['player3_rigth'], images['player3_left'])
 
 # Select level
 level = LevelSelector.select('medium', 'level1')
