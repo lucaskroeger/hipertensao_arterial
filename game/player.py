@@ -3,9 +3,11 @@ from game.settings import TILE_SIZE, SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_WIDTH, 
 from datetime import datetime, timedelta
 
 class Player:
-    def __init__(self, image):
+    def __init__(self, image_right, image_left):
         self.name = 'default'
-        self.image = image
+        self.image = image_right
+        self.image_left = image_left
+        self.image_right = image_right
         self.width = PLAYER_WIDTH
         self.height = PLAYER_HEIGHT
         self.default_speed = 13
@@ -44,8 +46,10 @@ class Player:
 
         if keys[pygame.K_a]:
             self.x -= self.speed
+            self.image = self.image_left
         if keys[pygame.K_d]:
             self.x += self.speed
+            self.image = self.image_right
         if keys[pygame.K_w] or keys[pygame.K_SPACE]:
             if not self.jump_key_pressed:
                 self.jump_key_pressed = True
