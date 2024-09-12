@@ -29,11 +29,18 @@ while main_loop:
         difficulty = None
         level_name = None
         difficulty, level_name = choose_level(screen)
-    if level is not None:
-        del level
+
     level = LevelSelector.select(difficulty, level_name)
 
-    player = Player(images['player3_rigth'], images['player3_left'])
+    if difficulty == 'tutorial' or difficulty == 'easy':
+        player_num = '1'
+    if difficulty == 'medium':
+        player_num = '2'
+    if difficulty == 'hard':
+        player_num = '3'
+    if difficulty == 'ultrahard':
+        player_num = '4'
+    player = Player(images[f'player{player_num}_right'], images[f'player{player_num}_left'])
     phase = Phase(player, level, screen, f'{difficulty}-{level_name}')
 
     running = True

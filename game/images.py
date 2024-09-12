@@ -12,11 +12,14 @@ def load_images():
         'good3': pygame.image.load('images/foods/good/3.png'),
         'bad1': pygame.image.load('images/foods/bad/1.png'),
         'bad2': pygame.image.load('images/foods/bad/2.png'),
-        'player1': pygame.image.load('images/players/1.png'),
-        'player2': pygame.image.load('images/players/2.png'),
-        'player3_rigth': pygame.image.load('images/players/3_rigth.png'),
-        'player3_left': pygame.image.load('images/players/3_left.png'),
-        'player4': pygame.image.load('images/players/4.png'),
+        'player1_right': pygame.image.load('images/players/1_r.png'),
+        'player1_left': pygame.image.load('images/players/1_l.png'),
+        'player2_right': pygame.image.load('images/players/2_r.png'),
+        'player2_left': pygame.image.load('images/players/2_l.png'),
+        'player3_right': pygame.image.load('images/players/3_r.png'),
+        'player3_left': pygame.image.load('images/players/3_l.png'),
+        'player4_right': pygame.image.load('images/players/4_r.png'),
+        'player4_left': pygame.image.load('images/players/4_l.png'),
         'heart': pygame.image.load('images/heart/heart.png'),
         'empty-heart': pygame.image.load('images/heart/empty-heart.png'),
         'slowness': pygame.image.load('images/debuff/debuff-slowness.png'),
@@ -33,11 +36,14 @@ def load_images():
     images['good3'] = pygame.transform.scale(images['good3'], (TILE_SIZE, TILE_SIZE))
     images['bad1'] = pygame.transform.scale(images['bad1'], (TILE_SIZE, TILE_SIZE))
     images['bad2'] = pygame.transform.scale(images['bad2'], (TILE_SIZE, TILE_SIZE))
-    images['player1'] = pygame.transform.scale(images['player1'], (PLAYER_WIDTH, PLAYER_HEIGHT))
-    images['player2'] = pygame.transform.scale(images['player2'], (PLAYER_WIDTH, PLAYER_HEIGHT))
-    images['player3_rigth'] = pygame.transform.scale(images['player3_rigth'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player1_right'] = pygame.transform.scale(images['player1_right'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player1_left'] = pygame.transform.scale(images['player1_left'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player2_right'] = pygame.transform.scale(images['player2_right'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player2_left'] = pygame.transform.scale(images['player2_left'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player3_right'] = pygame.transform.scale(images['player3_right'], (PLAYER_WIDTH, PLAYER_HEIGHT))
     images['player3_left'] = pygame.transform.scale(images['player3_left'], (PLAYER_WIDTH, PLAYER_HEIGHT))
-    images['player4'] = pygame.transform.scale(images['player4'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player4_right'] = pygame.transform.scale(images['player4_right'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player4_left'] = pygame.transform.scale(images['player4_left'], (PLAYER_WIDTH, PLAYER_HEIGHT))
     images['slowness'] = pygame.transform.scale(images['slowness'], (50, 50))
     images['jump_power'] = pygame.transform.scale(images['jump_power'], (50, 50))
 
