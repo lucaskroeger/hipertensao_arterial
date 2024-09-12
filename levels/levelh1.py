@@ -10,7 +10,7 @@ class LevelH1(LevelConstructor):
             "                                        ",
             "   XXXXXXXX           XXXXXXX           ",
             "                                        ",
-            "                     X                  ",
+            "          XX          X                 ",
             "                                        ",
             "       XXXXXXXXXX                XXXXX  ",
             "                           X            ",
