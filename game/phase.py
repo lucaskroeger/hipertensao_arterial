@@ -15,6 +15,8 @@ class Phase:
         self.level = level
         self.score = 0
         self.time = '00:00.00'
+        print(level)
+
         self.create_object_on_random_pos('B', level.starting_bad_spawn)
         self.create_object_on_random_pos('G', level.starting_good_spawn)
         self.update()

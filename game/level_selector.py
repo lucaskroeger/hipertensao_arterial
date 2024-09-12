@@ -46,10 +46,10 @@ class LevelSelector:
         },
 
         'ultrahard': {
-            'level1' : LevelUH1(),
-            'level2': LevelUH2,
-            'level3': LevelUH3,
-            'level4': LevelUH4,
+            'level1': LevelUH1(),
+            'level2': LevelUH2(),
+            'level3': LevelUH3(),
+            'level4': LevelUH4(),
         }
     }
 
