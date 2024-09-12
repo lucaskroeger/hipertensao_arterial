@@ -2,8 +2,13 @@ from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, BLACK, WHITE, 
 from datetime import datetime
 from interfaces.elements.button import Button
 import pygame
+from game.score.score_service import ScoreService
+from game.score.score import Score
 
 def end_game(phase, message):
+    
+    register_score(phase)
+
     phase.screen.fill(WHITE)
 
     background_img = phase.images[phase.level.background+'_dark']
@@ -68,5 +73,14 @@ def end_game(phase, message):
         pygame.display.flip()
         pygame.time.Clock().tick(30)
 
+
+def register_score(phase):
+    
+    if phase.player.score >= phase.level.score_to_win:
+
+        scoreService = ScoreService()
+        
+        scoreService.register(Score(phase.player.name, phase.time))
+    
 
 

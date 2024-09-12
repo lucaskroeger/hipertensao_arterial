@@ -4,6 +4,7 @@ from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, PLAYER_WIDTH, 
 def load_images():
     images = {
         'background1': pygame.image.load('images/scenario/background1.png'),
+        'backgroundTu': pygame.image.load('images/scenario/backgroundTu.png'),
         'background1_dark': pygame.image.load('images/scenario/background1_dark.png'),
         'platform': pygame.image.load('images/scenario/platform.png'),
         'good1': pygame.image.load('images/foods/good/1.png'),
@@ -13,12 +14,18 @@ def load_images():
         'bad2': pygame.image.load('images/foods/bad/2.png'),
         'player1': pygame.image.load('images/players/1.png'),
         'player2': pygame.image.load('images/players/2.png'),
-        'player3': pygame.image.load('images/players/3.png'),
-        'player4': pygame.image.load('images/players/4.png')
+        'player3_rigth': pygame.image.load('images/players/3_rigth.png'),
+        'player3_left': pygame.image.load('images/players/3_left.png'),
+        'player4': pygame.image.load('images/players/4.png'),
+        'heart': pygame.image.load('images/heart/heart.png'),
+        'empty-heart': pygame.image.load('images/heart/empty-heart.png'),
+        'slowness': pygame.image.load('images/debuff/debuff-slowness.png'),
+        'jump_power': pygame.image.load('images/buffs/buff-jump-power.png')
     }
 
     # Scale images
     images['background1'] = pygame.transform.scale(images['background1'], (SCREEN_WIDTH, SCREEN_HEIGHT))
+    images['backgroundTu'] = pygame.transform.scale(images['backgroundTu'], (SCREEN_WIDTH, SCREEN_HEIGHT))
     images['background1_dark'] = pygame.transform.scale(images['background1_dark'], (SCREEN_WIDTH, SCREEN_HEIGHT))
     images['platform'] = pygame.transform.scale(images['platform'], (TILE_SIZE, TILE_SIZE))
     images['good1'] = pygame.transform.scale(images['good1'], (TILE_SIZE, TILE_SIZE))
@@ -28,7 +35,11 @@ def load_images():
     images['bad2'] = pygame.transform.scale(images['bad2'], (TILE_SIZE, TILE_SIZE))
     images['player1'] = pygame.transform.scale(images['player1'], (PLAYER_WIDTH, PLAYER_HEIGHT))
     images['player2'] = pygame.transform.scale(images['player2'], (PLAYER_WIDTH, PLAYER_HEIGHT))
-    images['player3'] = pygame.transform.scale(images['player3'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player3_rigth'] = pygame.transform.scale(images['player3_rigth'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['player3_left'] = pygame.transform.scale(images['player3_left'], (PLAYER_WIDTH, PLAYER_HEIGHT))
     images['player4'] = pygame.transform.scale(images['player4'], (PLAYER_WIDTH, PLAYER_HEIGHT))
+    images['slowness'] = pygame.transform.scale(images['slowness'], (50, 50))
+    images['jump_power'] = pygame.transform.scale(images['jump_power'], (50, 50))
+
 
     return images

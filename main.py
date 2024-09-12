@@ -37,11 +37,9 @@ while main_loop:
         del level
     level = LevelSelector.select(difficulty, level_name)
 
-    # Initialize phase
-    player = Player(images['player3'])
+    player = Player(images['player3_rigth'], images['player3_left'])
     phase = Phase(player, level, screen)
 
-    # Game loop
     running = True
 
     while running:
