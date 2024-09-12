@@ -1,5 +1,5 @@
 from levels.level_constructor import LevelConstructor
-class LevelE1(LevelConstructor):
+class LevelE2(LevelConstructor):
     def __init__(self):
         self.map = [
             "                                        ",
@@ -25,9 +25,9 @@ class LevelE1(LevelConstructor):
             "     XXXXXXX          XXXXXXX           ",
             "                                        ",
             "                                        ",
+            "              XX                        ",
             "                                        ",
             "    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  ",
-            "                                        ",
             "                                        "
         ]
         self.starting_bad_spawn = 5

@@ -5,6 +5,10 @@
     },
     {
         "name": "default",
+        "time": "00:10.02"
+    },
+    {
+        "name": "default",
         "time": "00:10.14"
     },
     {
@@ -22,5 +26,9 @@
     {
         "name": "default",
         "time": "00:10.80"
+    },
+    {
+        "name": "default",
+        "time": "00:19.42"
     }
 ]

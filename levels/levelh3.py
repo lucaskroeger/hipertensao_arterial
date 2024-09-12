@@ -1,5 +1,5 @@
 from levels.level_constructor import LevelConstructor
-class LevelH1(LevelConstructor):
+class LevelH3(LevelConstructor):
     def __init__(self):
         self.map = [
             "                                        ",
