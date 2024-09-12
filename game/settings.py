@@ -14,6 +14,10 @@ PLAYER_WIDTH = TILE_SIZE
 # Font
 pygame.font.init()
 font = pygame.font.Font(None, 36)
+big_font = pygame.font.Font(None, 50)
 
 # Colors
 WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GRAY = (102, 102, 102)

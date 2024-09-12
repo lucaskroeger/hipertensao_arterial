@@ -7,10 +7,10 @@ from datetime import datetime
 from game.element import Element
 
 class Phase:
-    def __init__(self, player, level):
+    def __init__(self, player, level, screen):
         self.images = load_images()
         self.elements = []
-        self.screen = self.create_screen()
+        self.screen = screen
         self.player = player
         self.level = level
         self.score = 0
@@ -19,12 +19,6 @@ class Phase:
         self.create_object_on_random_pos('G', level.starting_good_spawn)
         self.update()
         
-
-    def create_screen(self):
-        screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("Hipertensão Arterial")
-        return screen
-
     def draw_background(self):
         background_img = self.images[self.level.background]
         self.screen.blit(background_img, (0, 0)) 
@@ -126,4 +120,3 @@ class Phase:
     
     def remove_element(self, x, y):
         self.elements[:] = [element for element in self.elements if element.x != x and element.y != y]
-  
