@@ -73,6 +73,7 @@ class Phase:
         # Render Score
         score_text = font.render(f"Score: {self.player.score}", True, WHITE)
         self.screen.blit(score_text, (10, 10))
+        
 
         # Render Time
         if self.player.first_input:
@@ -84,7 +85,8 @@ class Phase:
             self.time = f"{minutes:02}:{seconds:02}.{milliseconds:02}"
 
         time_text  = font.render(f"Time: {self.time}", True, WHITE)
-        self.screen.blit(time_text, (SCREEN_WIDTH-200, 10))
+        self.screen.blit(time_text, (SCREEN_WIDTH-214, 30))
+    
 
     def update(self):
         self.draw_background()

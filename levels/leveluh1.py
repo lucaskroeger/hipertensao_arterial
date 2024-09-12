@@ -4,7 +4,7 @@ class LevelUH1(LevelConstructor):
         self.map = [
             "                                        ",
             "                                        ",
-            "    X             X     X           XX  ",
+            "    X             X     X               ",
             "                                        ",
             "          X                             ",
             "                       X                ",
