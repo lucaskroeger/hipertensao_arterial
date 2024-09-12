@@ -4,11 +4,15 @@ import re
 
 class ScoreService:
     
-    def __init__(self):
+    def __init__(self, level):
         
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        
-        self.file_path = os.path.join(script_dir, 'best_scores.json')
+        self.level = level
+        self.file_path = os.path.join(script_dir, f'best_scores-{level}.json')
+        if not os.path.exists(self.file_path):
+            with open(self.file_path, 'a') as file:
+                file.write('[]')
+
 
     def register(self, score):
 
@@ -41,3 +45,8 @@ class ScoreService:
     def save_scores(self, scores):
         with open(self.file_path, 'w') as file:
             json.dump(scores, file, indent=4)
+
+    def get_top_scores(self):
+        scores = self.load_scores()
+        sorted_scores = [x['time'] for x in sorted(scores, key=lambda x: self.time_to_milliseconds(x['time']))[:10]]
+        return sorted_scores

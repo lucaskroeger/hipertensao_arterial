@@ -38,7 +38,7 @@ while main_loop:
     level = LevelSelector.select(difficulty, level_name)
 
     player = Player(images['player3_rigth'], images['player3_left'])
-    phase = Phase(player, level, screen)
+    phase = Phase(player, level, screen, f'{difficulty}-{level_name}')
 
     running = True
 

@@ -7,12 +7,13 @@ from game.render.render_factory import RenderFactory
 from game.element import Element
 
 class Phase:
-    def __init__(self, player, level, screen):
+    def __init__(self, player, level, screen, level_name):
         self.images = load_images()
         self.elements = []
         self.screen = screen
         self.player = player
         self.level = level
+        self.level_name = level_name
         self.score = 0
         self.time = '00:00.00'
         self.create_object_on_random_pos('B', level.starting_bad_spawn)

@@ -1,4 +1,4 @@
-from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, BLACK, WHITE, RED, font, big_font
+from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, BLACK, WHITE, RED, YELLOW, font, big_font
 from datetime import datetime
 from interfaces.elements.button import Button
 import pygame
@@ -6,7 +6,6 @@ from game.score.score_service import ScoreService
 from game.score.score import Score
 
 def end_game(phase, message):
-    
     register_score(phase)
 
     phase.screen.fill(WHITE)
@@ -57,6 +56,8 @@ def end_game(phase, message):
     choose_level_button.draw(phase.screen)
     quit_button.draw(phase.screen)
 
+    render_scores(phase)
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -78,9 +79,16 @@ def register_score(phase):
     
     if phase.player.score >= phase.level.score_to_win:
 
-        scoreService = ScoreService()
+        scoreService = ScoreService(phase.level_name)
         
         scoreService.register(Score(phase.player.name, phase.time))
     
-
-
+def render_scores(phase):
+    score_service = ScoreService(phase.level_name)
+    scores = score_service.get_top_scores()
+    for i in range(len(scores)):
+        if str(phase.time) == scores[i]:
+            text = font.render(f'{i+1 if i==9 else '  '+str(i+1)}: {scores[i]}', True, YELLOW) 
+        else:
+            text = font.render(f'{i+1 if i==9 else '  '+str(i+1)}: {scores[i]}', True, WHITE)
+        phase.screen.blit(text, (50, 330 + i*30))
