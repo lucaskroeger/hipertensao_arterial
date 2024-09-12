@@ -40,7 +40,3 @@ class TutorialLevel(LevelConstructor):
         self.score_to_lose = -3
         self.background = 'backgroundTu'
         self.max_quantity_spawn = sum(line.count('X') for line in self.map)
-
-     
-    
-   

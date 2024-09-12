@@ -24,10 +24,6 @@ replay = False
 difficulty = None
 level_name = None
 while main_loop:
-    print(replay)
-    print(difficulty)
-    print(level_name)
-    print(level)
     # Select level
     if not replay:
         difficulty = None

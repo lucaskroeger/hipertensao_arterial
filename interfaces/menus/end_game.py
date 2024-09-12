@@ -10,7 +10,10 @@ def end_game(phase, message):
 
     phase.screen.fill(WHITE)
 
-    background_img = phase.images[phase.level.background+'_dark']
+    if phase.level_name=='tutorial-tutorial':
+        background_img = phase.images['background1_dark']
+    else:
+        background_img = phase.images[phase.level.background+'_dark']
     message_text = big_font.render(message, True, WHITE)
     print(len(message))
     print((SCREEN_WIDTH - 25*len(message))/2)

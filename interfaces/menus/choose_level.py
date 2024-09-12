@@ -9,7 +9,7 @@ easy_button = Button(
     text= "Fácil", 
     value = 'easy',
     x= 40, 
-    y= 80, 
+    y= 160, 
     width= 200, 
     height= TILE_SIZE*2, 
     color= BLACK, 
@@ -20,7 +20,7 @@ medium_button = Button(
     text= "Médio", 
     value = 'medium',
     x= 280, 
-    y= 80, 
+    y= 160, 
     width= 200, 
     height= TILE_SIZE*2, 
     color= BLACK, 
@@ -31,7 +31,7 @@ hard_button = Button(
     text= "Difícil", 
     value = 'hard',
     x= 520, 
-    y= 80, 
+    y= 160, 
     width= 200, 
     height= TILE_SIZE*2, 
     color= BLACK, 
@@ -42,7 +42,18 @@ ultrahard_button = Button(
     text= "Ultra Difícil", 
     value = 'ultrahard',
     x= 760, 
-    y= 80, 
+    y= 160, 
+    width= 200, 
+    height= TILE_SIZE*2, 
+    color= BLACK, 
+    font=font
+)
+
+tutorial_button = Button(
+    text= "Tutorial", 
+    value = 'tutorial',
+    x= 40, 
+    y= 40, 
     width= 200, 
     height= TILE_SIZE*2, 
     color= BLACK, 
@@ -73,6 +84,8 @@ def choose_level(screen):
                     difficulty = hard_button.value
                 if ultrahard_button.rect.collidepoint(event.pos):
                     difficulty = ultrahard_button.value
+                if tutorial_button.rect.collidepoint(event.pos):
+                    return tutorial_button.value, 'tutorial'
                 reload_buttons(screen, difficulty)
                 for button in buttons:
                     if button.rect.collidepoint(event.pos):
@@ -116,6 +129,7 @@ def reload_buttons(screen, difficulty=None):
     medium_button.draw(screen)
     hard_button.draw(screen)
     ultrahard_button.draw(screen)
+    tutorial_button.draw(screen)
 
     # Levels
     if difficulty is not None:
@@ -123,7 +137,7 @@ def reload_buttons(screen, difficulty=None):
         margin = 40
         button_width = 200
         x_pos=margin
-        y_pos = 160
+        y_pos = 240
 
         levels = LevelSelector.level_mapper[difficulty]
         level_names = [name for name in list(levels.keys())]

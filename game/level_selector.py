@@ -25,7 +25,7 @@ class LevelSelector:
     level_mapper = {
         
         'tutorial': {
-            'level1': TutorialLevel()
+            'tutorial': TutorialLevel()
         },
         'easy': {
             'Nivel 1': LevelE1(),
@@ -39,17 +39,17 @@ class LevelSelector:
             'Nivel 3': MidLevel1()
         },
         'hard': {
-            'level1' : LevelH1(),
-            'level2' : LevelH2(),
-            'level3' : LevelH3(),
-            'level4' : LevelH4(),
+            'Nivel 1' : LevelH1(),
+            'Nivel 2' : LevelH2(),
+            'Nivel 3' : LevelH3(),
+            'Nivel 4' : LevelH4(),
         },
 
         'ultrahard': {
-            'level1': LevelUH1(),
-            'level2': LevelUH2(),
-            'level3': LevelUH3(),
-            'level4': LevelUH4(),
+            'Nivel 1': LevelUH1(),
+            'Nivel 2': LevelUH2(),
+            'Nivel 3': LevelUH3(),
+            'Nivel 4': LevelUH4(),
         }
     }
 
