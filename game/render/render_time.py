@@ -18,4 +18,4 @@ class RenderTime(Render):
             phase.time = f"{minutes:02}:{seconds:02}.{milliseconds:02}"
 
         time_text  = font.render(f"Time: {phase.time}", True, WHITE)
-        phase.screen.blit(time_text, (SCREEN_WIDTH-200, 20))
+        phase.screen.blit(time_text, (SCREEN_WIDTH-213, 30))
