@@ -33,8 +33,8 @@ class LevelE1(LevelConstructor):
         ]
         self.starting_bad_spawn = 5
         self.starting_good_spawn = 5
-        self.bad_spawn_on_good_collection = 2
-        self.good_spawn_on_bad_collection = 3
+        self.bad_spawn_on_good_collection = 1
+        self.good_spawn_on_bad_collection = 2
         self.maxQuantitySpawn = sum(line.count('X') for line in self.map)
         self.background = 'background1'
         self.score_to_win = 5

@@ -4,11 +4,11 @@ class LevelH4(LevelConstructor):
         self.map = [
             "                                        ",
             "                                        ",
-            "   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       ",
             "                                        ",
-            "             X       X                  ",
             "                                        ",
-            "                X                       ",
+            "                                        ",
+            "       XXXXXXX       XXXXX              ",
+            "                                        ",
             "                                        ",
             "  XXXXXXXXXXXXXXXX            XXXXXXX   ",
             "                                        ",
@@ -21,19 +21,19 @@ class LevelH4(LevelConstructor):
             "                                        ",
             "     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   ",
             "                                        ",
-            "      X       X    X     X       X      ",
+            "  XXX     XXX     XXX    XXX   XXX      ",
             "                                        ",
-            "    X      X         X       X          ",
+            "   XXX    XXX        XXX     XXX        ",
             "                                        ",
             "       XXXXXXX           XXXXXXX        ",
-            "  X               X                  X  ",
+            "XXX               XXX                XXX",
             "                                        ",
-            "X       XXXX          XXXXXX        XXXX",
+            "XXX     XXXX          XXXXXX        XXXX",
             "                                        "
         ]
-        self.starting_bad_spawn = 5
+        self.starting_bad_spawn = 18
         self.starting_good_spawn = 5
-        self.bad_spawn_on_good_collection = 3
+        self.bad_spawn_on_good_collection = 2
         self.good_spawn_on_bad_collection = 1
         self.score_to_win = 5
         self.score_to_lose = -3

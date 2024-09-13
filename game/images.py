@@ -47,5 +47,4 @@ def load_images():
     images['slowness'] = pygame.transform.scale(images['slowness'], (50, 50))
     images['jump_power'] = pygame.transform.scale(images['jump_power'], (50, 50))
 
-
     return images

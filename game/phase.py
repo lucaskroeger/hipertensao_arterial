@@ -1,10 +1,10 @@
 import pygame
+import random 
 from game.images import load_images
 from game.settings import SCREEN_WIDTH,SCREEN_HEIGHT,TILE_SIZE,WHITE,font
-import random 
 from game.render.render_factory import RenderFactory
-
 from game.element import Element
+
 
 class Phase:
     def __init__(self, player, level, screen, level_name):
@@ -79,31 +79,22 @@ class Phase:
         pygame.time.Clock().tick(30)
 
     def get_random_image(self, type):
-
         if type == 'G':
-            
             range = 3
-
             return self.images['good' + str(random.randint(1, range))]
 
         elif type == 'B':
-            
             range = 2
-
             return self.images['bad' + str(random.randint(1, range))]
 
     def get_image(self, x, y, type):
-
         currentElement = next(filter(lambda element: element.x == x and element.y == y, self.elements), None)
 
         if currentElement != None:
             return currentElement.image
         else:
-            
             image = self.get_random_image(type)
-            
             element = Element(x, y, image, type == 'G')
-            
             self.elements.append(element)
 
             return element.image

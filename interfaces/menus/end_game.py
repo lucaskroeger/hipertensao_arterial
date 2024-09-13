@@ -1,7 +1,7 @@
-from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, BLACK, WHITE, RED, YELLOW, font, big_font
-from datetime import datetime
-from interfaces.elements.button import Button
 import pygame
+from datetime import datetime
+from game.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, BLACK, WHITE, RED, YELLOW, font, big_font
+from interfaces.elements.button import Button
 from game.score.score_service import ScoreService
 from game.score.score import Score
 
@@ -15,8 +15,7 @@ def end_game(phase, message):
     else:
         background_img = phase.images[phase.level.background+'_dark']
     message_text = big_font.render(message, True, WHITE)
-    print(len(message))
-    print((SCREEN_WIDTH - 25*len(message))/2)
+
     # Render Time
     time_text  = font.render(f"Tempo: {phase.time}", True, WHITE)
 
@@ -77,13 +76,9 @@ def end_game(phase, message):
         pygame.display.flip()
         pygame.time.Clock().tick(30)
 
-
 def register_score(phase):
-    
     if phase.player.score >= phase.level.score_to_win:
-
         scoreService = ScoreService(phase.level_name)
-        
         scoreService.register(Score(phase.player.name, phase.time))
     
 def render_scores(phase):
@@ -95,3 +90,4 @@ def render_scores(phase):
         else:
             text = font.render(f'{i+1 if i==9 else '  '+str(i+1)}: {scores[i]}', True, WHITE)
         phase.screen.blit(text, (50, 330 + i*30))
+        

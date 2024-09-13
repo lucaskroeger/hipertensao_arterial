@@ -2,38 +2,38 @@ from levels.level_constructor import LevelConstructor
 class LevelH2(LevelConstructor):
     def __init__(self):
         self.map = [
+            "                                       ",
             "                                        ",
             "                                        ",
-            "                          XXXXXXXX      ",
             "        XXXXXXXXX                       ",
             "                                        ",
             "                        XXXXXXXX        ",
             "                                        ",
-            "            XXXXX                       ",
+            "                                        ",
+            "            XXXXX         XXXX          ",
             "                                        ",
             "                                        ",
-            "        XXXXXXX                         ",
+            "     XXXXXX                 XXXXXXXX    ",
             "                                        ",
-            "    XXXXXX                              ",
-            "                            XXXXXXXX    ",
             "                                        ",
-            "               XXXXXXX                  ",
-            "XXXXX                                   ",
+            "XXXXX               XXXXXXX             ",
+            "                                        ",
             "                                        ",
             "     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   ",
             "                                        ",
-            "         X    X       X                 ",
             "                                        ",
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "      XXX      XXX       XXX            ",
             "                                        ",
-            "           X      X        X            ",
             "                                        ",
-            "        XXX    XXX   XXX                ",
+            "XXXXXXX                    XXXXXXXXX    ",
+            "                                        ",
+            "                                        ",
+            "        XXX    XXX   XXX             XXX",
             "                                        "
         ]
-        self.starting_bad_spawn = 5
+        self.starting_bad_spawn = 18
         self.starting_good_spawn = 5
-        self.bad_spawn_on_good_collection = 3
+        self.bad_spawn_on_good_collection = 2
         self.good_spawn_on_bad_collection = 1
         self.score_to_win = 5
         self.score_to_lose = -3

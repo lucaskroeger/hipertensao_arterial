@@ -10,16 +10,13 @@ class RenderBuffNerf(Render):
             'jump_power': [SCREEN_WIDTH - 350, 15],
             'gravity': [10, 10]
         }
-           
+
     def render(self, phase):
-        
         self.handle_condition_icon('slowness', phase) 
         self.handle_condition_icon('jump_power', phase)
     
     def handle_condition_icon(self, condition_str, phase):
-        
         if condition_str in phase.player.temporary_conditions:
-            
             condition = phase.player.temporary_conditions[condition_str]
 
             if condition is not None:
@@ -29,4 +26,3 @@ class RenderBuffNerf(Render):
 
     def add_icon(self, image, x, y, phase):
         phase.screen.blit(image, (x, y))         
-

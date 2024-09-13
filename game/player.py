@@ -138,7 +138,5 @@ class Player:
         
         for k, v in list(self.temporary_conditions.items()):
             if v is not None and v <= now:
-                print(f'Condition {k} is met. Removing from list. {now}')
                 del self.temporary_conditions[k]
                 self.speed = self.default_speed
-

@@ -2,10 +2,9 @@ import json
 import os
 import re
 
+
 class ScoreService:
-    
     def __init__(self, level):
-        
         script_dir = os.path.dirname(os.path.abspath(__file__))
         self.level = level
         self.file_path = os.path.join(script_dir, f'best_scores-{level}.json')
@@ -13,9 +12,7 @@ class ScoreService:
             with open(self.file_path, 'a') as file:
                 file.write('[]')
 
-
     def register(self, score):
-
         scores = self.load_scores()
 
         scores.append({'name': score.name, 'time':score.time})
@@ -25,12 +22,10 @@ class ScoreService:
         self.save_scores(sorted_scores)
 
     def load_scores(self):
-
         with open(self.file_path, 'r') as file:
             return json.load(file)
         
     def time_to_milliseconds(self, time_str):
-
         match = re.match(r'(\d{2}):(\d{2})\.(\d{2})', time_str)
 
         if match:

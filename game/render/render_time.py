@@ -4,11 +4,8 @@ from game.settings import SCREEN_WIDTH, WHITE, font
 
 
 class RenderTime(Render):
-
     def render(self, phase):
-        
         if phase.player.first_input:
-            
             now = datetime.now() 
 
             time_played = now - phase.player.first_input
@@ -19,3 +16,4 @@ class RenderTime(Render):
 
         time_text  = font.render(f"Time: {phase.time}", True, WHITE)
         phase.screen.blit(time_text, (SCREEN_WIDTH-213, 30))
+        

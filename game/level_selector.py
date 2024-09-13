@@ -4,8 +4,8 @@ from levels.levele3 import LevelE3
 from levels.levele4 import LevelE4
 
 from levels.levelm1 import LevelM1
-from levels.mid.mid_level import MidLevel
-from levels.mid.mid_level_1 import MidLevel1
+from levels.levelm2 import LevelM2
+from levels.levelm3 import LevelM3
 
 from levels.levelh1 import LevelH1
 from levels.levelh2 import LevelH2
@@ -18,7 +18,6 @@ from levels.leveluh1 import LevelUH1
 from levels.leveluh2 import LevelUH2
 from levels.leveluh3 import LevelUH3
 from levels.leveluh4 import LevelUH4
-
 
 
 class LevelSelector:
@@ -34,9 +33,9 @@ class LevelSelector:
             'Nivel 4': LevelE4()
         },
         'medium': {
-            'Nivel 1': MidLevel(),
-            'Nivel 2': LevelM1(),
-            'Nivel 3': MidLevel1()
+            'Nivel 1': LevelM1(),
+            'Nivel 2': LevelM2(),
+            'Nivel 3': LevelM3()
         },
         'hard': {
             'Nivel 1' : LevelH1(),
