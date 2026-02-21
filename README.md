@@ -1,4 +1,4 @@
-# 🫀 Hypertension Awareness Game
+# 🫀 HeartRush: A Hypertension Awareness Game
 
 An educational game developed in Python to simulate the long-term impact
 of lifestyle choices on arterial hypertension.
